@@ -58,7 +58,7 @@ if (shouldQuit) {
 }
 
 function writeToFile(filePath: string, fileContents: string) {
-  fs.writeFile(filePath, fileContents, function(err) {
+  fs.writeFile(filePath, fileContents, function (err) {
     if (err) {
       console.log(err)
     }
@@ -110,10 +110,10 @@ function startTimer(flags: any) {
     timerWindow && timerWindow.show()
   })
 
-  timerWindow.webContents.on('crashed', function() {
+  timerWindow.webContents.on('crashed', function () {
     bugsnag.notify('crashed', { details: 'timerWindow crashed' })
   })
-  timerWindow.on('unresponsive', function() {
+  timerWindow.on('unresponsive', function () {
     bugsnag.notify('unresponsive', { details: 'timerWindow unresponsive' })
   })
 
@@ -248,7 +248,7 @@ function onReady() {
 app.on('ready', onReady)
 app.on('before-quit', () => analytics.endSession())
 
-app.on('activate', function() {
+app.on('activate', function () {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (displayManager) {
