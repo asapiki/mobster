@@ -5,3 +5,7 @@ npm-debug.log
 dist/
 *.js
 !webpack.config.js
+
+
+# VSCode
+.vscode/
