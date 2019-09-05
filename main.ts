@@ -217,6 +217,7 @@ function onReady() {
         shell.openExternal(ipc.data)
       } else if (ipc.message === 'StartTimer') {
         startTimer(ipc.data)
+        execExternalScript(ipc.data)
         analytics.trackEvent({
           category: 'timer',
           action: ipc.data.isBreak ? 'start-break' : 'start-timer',
@@ -344,4 +345,9 @@ function showStopTimerDialog() {
     displayManager.toggleMain()
   }
   dialogDisplayed = false
+}
+
+function execExternalScript(track_data: any) {
+  const { exec } = require('child_process');
+  exec(`/Users/kdg-developer/.config/mobster/onTimerStart.sh -d ${track_data.driver} -n ${track_data.navigator} -b ${track_data.isBreak} -m ${track_data.minutes}`)
 }

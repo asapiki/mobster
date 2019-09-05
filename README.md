@@ -36,6 +36,15 @@ Date:   Fri Mar 3 21:00:25 2017 -0500
     Set phasers to stun.
 ```
 
+## Hook Shell Script When Timer is Started
+When timer is started, Mobster execute `~/.config/mobster/onTimerStart.sh` with options: `-d driver -n navigator -b is_break -m minute`.
+You can do something depends on the driver.
+For example, changing keyboard shortcat.
+
+`./onTimerStart.sh` is a template script.
+Copy it to `~/.config/mobster/onTimerStart.sh` and edit as you want.
+
+
 ## Workaround for Windows 10 Transparency Issues
 There is a [known Electron bug for transparency in Windows 10](https://github.com/electron/electron/issues/9357) (see also https://github.com/dillonkearns/mobster/issues/49). If you have this issue on your machine, you can disable transparency with these steps:
 
